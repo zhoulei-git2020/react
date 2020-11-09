@@ -409,6 +409,10 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
+                  [
+                      "import",
+                      {libraryName:"antd",style:'css'}
+                  ],
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),
