@@ -1,22 +1,22 @@
-import React from 'react'
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import { Button } from 'antd';
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
+import Login from './views/login/index'
+class App extends React.Component{
+   constructor(props){
+     super(props);
+     this.state = {}
+   }
 
 
-
-function App() {
+render() {
   return (
-    <div >
-     
-     <Button type="primary">Primary Button</Button>
-    <Button>Default Button</Button>
-    <Button type="dashed">Dashed Button</Button>
-    <br />
-    <Button type="text">Text Button</Button>
-    <Button type="link">Link Button</Button>
-    </div>
-  );
+     <BrowserRouter>
+        <Switch>
+          <Route exact component={Login} path="/"></Route>
+        </Switch>
+     </BrowserRouter>
+    )
+  }
 }
-
 export default App;
