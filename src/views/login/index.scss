@@ -1,8 +1,26 @@
-.form-warp {
-    display: flex;  //弹性模式
-    width : 300px; //宽度300px
-    height: 100vh;  //
-    margin: auto;   //居中
-    background-color: pink;
-    align-items: center;
+.form-wrap {
+    display: flex;                  //弹性模式
+    width : 300px;                  //宽度300px
+    height: 100vh;                  //高度100%
+    margin: auto;                   //居中
+    align-items: center;            //弹性模式垂直居中
+    > div {width: 100%;}            //最外层div宽度100%
+}
+.form-header{
+    height:56px;                    //高度56px
+    line-height: 56px;              //行高56px
+    color: #fff;                  //颜色
+    .column{
+        float: left;                //靠左对齐
+        font-size: 16px;            //字体16px
+        margin: auto;  
+        color: #fff;             //居中显示
+        
+    }
+    span {
+            float: right;           //靠右对齐
+            font-size: 12px;        //字体12px
+            opacity: .3;            //透明度3
+        }
+
 }
