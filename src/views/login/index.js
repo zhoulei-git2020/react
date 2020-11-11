@@ -1,9 +1,14 @@
 import React, {Component} from "react";
 import "./index.scss"
 
-//组件
+//ANTD
 import { Form, Input, Button, Checkbox,Row, Col } from 'antd';
 import { UserOutlined, LockOutlined,UnlockFilled } from '@ant-design/icons';
+
+//组件
+import LoginForm from "./LoginForm"
+
+
 
 class Login extends Component{
     constructor(){
@@ -22,6 +27,7 @@ class Login extends Component{
                     <div>
                         <div className="form-header">
                             <h4 className="column">登录</h4>
+                            <LoginForm></LoginForm>
                             <span>账号注册</span>
                         </div>
                         <div className = "form-content">
