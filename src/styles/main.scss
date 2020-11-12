@@ -1,5 +1,5 @@
 @import "./sassConfig.scss";
 //全局性公共样式
 body {
-    background-color: #001529 ;
+    background-color: #001529 !important; //权重最高级别 此颜色别的插件不可覆盖
 }
