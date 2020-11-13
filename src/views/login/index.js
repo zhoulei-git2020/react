@@ -20,6 +20,13 @@ class Login extends Component{
     }
 
 
+//在父组件中定义一个方法接收子组件的传值并切换登录注册的状态
+switchForm = (value) =>{
+   this.setState({
+       formType:value
+   })
+
+}
 
 
     render(){
@@ -29,7 +36,10 @@ class Login extends Component{
                     {/* *************************************************************** */}
 
                     {/* 判断注册还是登录状态以显示其组件 */}
-                    {this.state.formType === 'login' ? <LoginForm></LoginForm>:<RegisterFrom></RegisterFrom>}  
+                    {this.state.formType === 'login' 
+                    ? <LoginForm   switchForm={this.switchForm}></LoginForm>
+                    :<RegisterFrom switchForm={this.switchForm}></RegisterFrom>
+                    }  
                     
                     
 

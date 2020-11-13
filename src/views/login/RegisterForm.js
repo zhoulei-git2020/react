@@ -15,13 +15,19 @@ class RegisterForm extends Component{
         console.log('Received values of form: ', values);
       };
 
+
+    toggleForm = () => {
+        this.props.switchForm("login"); //调用父级的方法将参数传送给父级
+       
+    }  
+
     render(){
         return (
         <Fragment>
             <div className="form-header">
                 <h4 className="column">注册</h4>
                 
-                <span>登录</span>
+                <span onClick={this.toggleForm}>登录</span>
             </div>
             <div className = "form-content"></div>
 
@@ -69,7 +75,7 @@ class RegisterForm extends Component{
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button" block>登录 </Button>
+                    <Button type="primary" htmlType="submit" className="login-form-button" block>注册 </Button>
                 </Form.Item>
             </Form>
     </Fragment>
