@@ -41,14 +41,36 @@ class LoginForm extends Component{
                             >
                             <Form.Item
                                 name="username"
-                                rules={[{ required: true, message: '请输入用户名' }]}
+                                rules={
+                                        [
+                                            {required: true, message: '邮箱不能位空' },
+                                            {type:"email",message:"邮箱格式错误"}
+
+                                        ]
+                                    }
                             >
                                 <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
                             </Form.Item> 
 
                             <Form.Item
                                 name="password"
-                                rules={[{ required: true, message: '请输入密码' }]}
+                                rules={
+                                        [
+                                            {required: true, message: '密码不能为空' },
+                                            // {min:6,message:"密码不能小于6位"},
+                                            // {max:20,message:"密码不能大于20位"},
+                                            // {pattern:/^[0-9]*$/,message:"请输入数字"}
+
+                                            ({getFieldValue})=>({
+                                                validator(rule,value){
+                                                    if(!value || getFieldValue('password')===value){
+                                                        return Promise.resolve();
+                                                    }
+                                                    return Promise.reject('')
+                                                }
+                                            }),
+                                        ]
+                                      }
                             >
                                 <Input prefix={<UnlockFilled className="site-form-item-icon" />} placeholder="密码" />
                             </Form.Item>
