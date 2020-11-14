@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from "react";
 
 //ANTD
-import { Form, Input, Button, Checkbox,Row, Col } from 'antd';
+import { Form, Input, Button, Checkbox,Row, Col, message } from 'antd';
 import { UserOutlined, LockOutlined,UnlockFilled } from '@ant-design/icons';
-
+//验证规则导入
+import {validate_password} from "../../utils/validate"
 
 class LoginForm extends Component{
     constructor(){
@@ -37,7 +38,7 @@ class LoginForm extends Component{
                             name="normal_login"
                             className="login-form"
                             initialValues={{ remember: true }}
-                            onFinish={()=>this.onFinish}
+                            onFinish={this.onFinish}
                             >
                             <Form.Item
                                 name="username"
@@ -59,25 +60,32 @@ class LoginForm extends Component{
                                             {required: true, message: '密码不能为空' },
                                             // {min:6,message:"密码不能小于6位"},
                                             // {max:20,message:"密码不能大于20位"},
-                                            // {pattern:/^[0-9]*$/,message:"请输入数字"}
+                                            {pattern:validate_password,message:"密码长度不得小于6位或大于20位"}
 
-                                            ({getFieldValue})=>({
-                                                validator(rule,value){
-                                                    if(!value || getFieldValue('password')===value){
-                                                        return Promise.resolve();
-                                                    }
-                                                    return Promise.reject('')
-                                                }
-                                            }),
+                                            // ({getFieldValue})=>({
+                                            //     validator(rule,value){
+                                            //         if(value.length<6 || value.length>20){
+                                            //             return Promise.reject('密码长度不得小于6位或大于20位')
+                                            //         }else{
+                                            //             return Promise.resolve();
+                                            //         }
+                                                    
+                                            //     }
+                                            // }),
                                         ]
                                       }
                             >
-                                <Input prefix={<UnlockFilled className="site-form-item-icon" />} placeholder="密码" />
+                                <Input prefix={<UnlockFilled className="site-form-item-icon" />} placeholder='字母+数字大于6位小于20位' />
                             </Form.Item>
 
                             <Form.Item
                                 name="code"
-                                rules={[{ required: true, message: '请输入验证码' }]}
+                                rules={
+                                            [
+                                                {required: true, message: '验证码不能为空' },
+                                                {len:6,message:'请输入长度位6位验证码'  }
+                                            ]
+                                      }
                             > 
                                 <Row gutter={13}>
                                     <Col span={15}>
