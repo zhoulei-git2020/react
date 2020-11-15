@@ -6,6 +6,8 @@ import { UserOutlined, LockOutlined,UnlockFilled } from '@ant-design/icons';
 //验证规则导入
 import {validate_password} from "../../utils/validate"
 
+//API接口导入
+import {Login} from "../../api/account"
 class LoginForm extends Component{
     constructor(){
         super();
@@ -13,7 +15,11 @@ class LoginForm extends Component{
 
     }
     onFinish = values => {
-        console.log('Received values of form: ', values);
+        Login().then(response=>{
+            console.log(response)
+        }).catch(error=>{
+            
+        })
       };
 
    

@@ -2,7 +2,7 @@ import axios from "axios"
  
 //第一步创建实例
 const service = axios.create({
-    baseURL:'',
+    baseURL:'devApi',
     timeout:5000,
     
 });

@@ -1,7 +1,7 @@
 const proxy = require("http-proxy-middleware")
 
 module.exports = function(app){
-    app.use(proxy("/manage",{
+    app.use(proxy("/devApi",{
         target:"http://www.web-jshtml.cn/api/react",//配置你的请求服务器的地址
         changeOrigin:true
 
