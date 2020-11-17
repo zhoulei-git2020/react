@@ -5,7 +5,7 @@ import service from "../../src/utils/request"
 
  export function Login(data){
      service.request({
-         url:"/login",
+         url:"/login/",
          method:"post",
          data:data,  //请求为post时
          // params:data //请求类型为get时
