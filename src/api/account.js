@@ -10,4 +10,4 @@ import service from "../../src/utils/request"
          data:data,  //请求为post时
          // params:data //请求类型为get时
      });
-}
+} 
