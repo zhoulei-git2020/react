@@ -2,7 +2,7 @@ import axios from "axios"
  
 //第一步创建实例
 const service = axios.create({
-    baseURL:'devApi',
+    baseURL:process.env.REACT_APP_API,
     timeout:5000,
     
 });
@@ -20,6 +20,10 @@ service.interceptors.request.use(function(config){
 service.interceptors.response.use(function(response){
     //对响应数据做些什么
     return response;
+    //  Promise.resolve(error);
+
+
+
 },function(error){
     //对响应错误做些什么
     return Promise.reject(error)
