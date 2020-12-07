@@ -20,6 +20,10 @@ service.interceptors.request.use(function(config){
 service.interceptors.response.use(function(response){
     //对响应数据做些什么
     return response;
+    //  Promise.resolve(error);
+
+
+
 },function(error){
     //对响应错误做些什么
     return Promise.reject(error)
